@@ -1,0 +1,27 @@
+.special {
+	.btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		padding: .75em 0;
+		box-sizing: border-box;
+		max-width: 150px;
+
+		&-red {
+			background-color: #d9263b;
+		}
+
+		&-blue {
+			background-color: #00b5c2;
+		}
+
+		&-orange {
+			background-color: #f77f1d;
+		}
+
+		&-green {
+			background-color: #6abb35;
+		}
+	}
+}

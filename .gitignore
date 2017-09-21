@@ -1,0 +1,6 @@
+node_modules/
+dist/res/css/
+dist/res/js/
+sublime-gulp.log
+yarn.lock
+.sublime-gulp.cache

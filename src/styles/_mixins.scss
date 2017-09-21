@@ -1,0 +1,35 @@
+@import "common";
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin text-with-shadow($primary-color, $shadow-color) {
+	color: $primary-color;
+	text-shadow: 0px 1px 2px $shadow-color;
+}
+
+@mixin font($font-weight: 400, $font-size: 14px, $line-height: 1.5, $family: 'Open Sans') {
+	font: $font-weight $font-size unquote("/") $line-height $family;
+}
+
+@mixin no-outline() {
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		outline: none;
+	}
+}
+
+@mixin no-underline() {
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+	}
+}
