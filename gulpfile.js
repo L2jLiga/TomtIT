@@ -76,7 +76,7 @@ gulp.task('watch', function() {
   gulp.watch([
 		'./src/vendor-styles/*.scss',
 		'./src/styles/*.scss',
-		'./dist/**/*.html'
+	//	'./dist/**/*.html'
 	], gulp.parallel('compile styles'));
 });
 
