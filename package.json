@@ -11,14 +11,17 @@
     "gulp-clean": "lastest",
     "gulp-concat": "^2.6.1",
     "gulp-concat-css": "^2.3.0",
-    "gulp-csso": "lastest",
     "gulp-postcss": "lastest",
     "gulp-rename": "lastest",
     "gulp-sass": "lastest",
     "gulp-uglify": "^3.0.0",
     "jquery": "^3.2.1",
     "normalize.css": "^7.0.0",
-    "popper.js": "^1.12.5"
+    "popper.js": "^1.12.5",
+    "postcss-csso": "^2.0.0",
+    "postcss-fixes": "^2.0.1",
+    "postcss-nth-child-fix": "^2.0.0",
+    "usedcss": "^1.0.7"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

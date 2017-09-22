@@ -3,7 +3,6 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
-const csso = require('gulp-csso');
 const rename = require('gulp-rename');
 const clean = require('gulp-clean');
 const concat = require('gulp-concat');
@@ -12,9 +11,19 @@ const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
 
-const processors = [
-	require('autoprefixer')({browsers: ['ie 11', 'last 2 version']}),
+// PostCSS settings
+const postcssPreprocess = [
+	require('usedcss')({
+		html: './dist/**/*.html'
+	}),
+	require('postcss-nth-child-fix'),
+	require('postcss-fixes')({preset: 'fixes-only'}),
+	require('autoprefixer'),
+	
+];
+const postcssMinify = [
 	require('cssnano')({'safe': true, 'zindex': false}),
+	require('postcss-csso')(),
 ];
 
 // Clean DIST folder
@@ -33,14 +42,14 @@ gulp.task('compile styles', function () {
 	])
     .pipe(sass().on('error', sass.logError))
     .pipe(concatCss('app-style.css'))
+	.pipe(postcss(postcssPreprocess))
     
     // Original
     .pipe(gulp.dest('./dist/res/css'))
 
     // minified
     .pipe(rename({suffix: '.min'}))
-	.pipe(postcss(processors))
-	.pipe(csso())
+	.pipe(postcss(postcssMinify))
 	.pipe(gulp.dest("./dist/res/css"));;
 });
 
