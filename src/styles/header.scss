@@ -60,9 +60,11 @@
 }
 
 .menu {
-  display: flex;
+  &.show {
+    display: flex;
 
-  padding: 0 .9em;
+    padding: 0 .9em;
+  }
 
   &__item {
     position: relative;

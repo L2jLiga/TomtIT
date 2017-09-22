@@ -2,7 +2,7 @@
  * Define adaptive font-size
  */
 
-:root {
+html {
 	@media (max-width: 1199px) {
 		font-size: 12px;
 	}

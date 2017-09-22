@@ -8,9 +8,7 @@
 
 		'./node_modules/bootstrap/js/dist/util.js',
 
-		'./node_modules/bootstrap/js/dist/carousel.js',
-
 		'./node_modules/bootstrap/js/dist/dropdown.js',
-		
+
 		'./src/js/**/*.js'];
 })()

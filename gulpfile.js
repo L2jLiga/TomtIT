@@ -13,9 +13,10 @@ const sourcemaps = require('gulp-sourcemaps');
 
 // PostCSS settings
 const postcssPreprocess = [
-	require('usedcss')({
-		html: './dist/**/*.html'
-	}),
+	//require('usedcss')({
+	//	html: './dist/**/*.html',
+	//	js: require('./src/js-static.js')
+	//}),
 	require('postcss-nth-child-fix'),
 	require('postcss-fixes')({preset: 'fixes-only'}),
 	require('autoprefixer'),
@@ -36,9 +37,7 @@ gulp.task('clean dist', function(){
 gulp.task('compile styles', function () {
 	return gulp.src([
 		'./src/vendor-styles/*.scss',
-		'./src/vendor-styles/*.sass',
-		'./src/styles/*.scss',
-		'./src/styles/*.sass'
+		'./src/styles/*.scss'
 	])
     .pipe(sass().on('error', sass.logError))
     .pipe(concatCss('app-style.css'))
@@ -70,8 +69,15 @@ gulp.task('compile scripts', function(){
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./src/js/**/*.js', gulp.parallel('compile scripts'));
-  gulp.watch('./src/styles/*.*', gulp.parallel('compile styles'));
+  gulp.watch([
+	  	'./src/js-static.js',
+	  	'./src/js/**/*.js'
+  	], gulp.parallel('compile scripts'));
+  gulp.watch([
+		'./src/vendor-styles/*.scss',
+		'./src/styles/*.scss',
+		'./dist/**/*.html'
+	], gulp.parallel('compile styles'));
 });
 
 gulp.task('build', gulp.series('clean dist', 'compile scripts', 'compile styles'));

@@ -5,17 +5,13 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-// Core variables and mixins
+// Core BS functions & mixins
 @import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
+@import "variables";
 @import "../../node_modules/bootstrap/scss/mixins";
 
-// Import project settings
-@import "variables";
-
-// Reset and dependencies
+// Normalize.CSS dependency
 @import "../../node_modules/normalize.css/normalize";
-@import "../../node_modules/bootstrap/scss/print";
 
 // Core CSS
 @import "../../node_modules/bootstrap/scss/reboot";
@@ -42,9 +38,6 @@
 @import "../../node_modules/bootstrap/scss/media";
 @import "../../node_modules/bootstrap/scss/list-group";
 @import "../../node_modules/bootstrap/scss/close";
-
-// Components w/ JavaScript
-@import "../../node_modules/bootstrap/scss/carousel";
 
 // Glyphicons from BS3
 $bootstrap-sass-asset-helper: false;
