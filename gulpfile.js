@@ -29,7 +29,7 @@ const postcssMinify = [
 
 // Clean DIST folder
 gulp.task('clean dist', function(){
-	return gulp.src(['./dist/res/css/*', '/dist/res/js/*'], {read: false})
+	return gulp.src(['./dist/res/css/*', './dist/res/js/*'], {read: false})
 	.pipe(clean());
 });
 
