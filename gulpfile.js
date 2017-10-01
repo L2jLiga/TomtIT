@@ -54,8 +54,8 @@ gulp.task('compile styles', function () {
 
 gulp.task('compile scripts', function(){
 	return gulp.src(require('./src/js-static.js'))
-	.pipe(babel())
 	.pipe(concat('app.js'))
+	.pipe(babel())
 
 	// Original
 	.pipe(gulp.dest('./dist/res/js'))
