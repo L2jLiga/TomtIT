@@ -1,0 +1,49 @@
+@import "common";
+@import "mixins";
+
+.main-news {
+	padding: 15px;
+	background: $very-light-black;
+
+	&__title {
+		color: $pure-black;
+		@include font(600, 2.5em, 1.5);
+		text-align: center;
+	}
+
+	&__wrapper {
+		padding: 25px 15px 15px;
+		max-width: 1200px;
+		margin: 0 auto;
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+}
+
+.news-item {
+	flex-basis: calc(25% - 30px);
+	margin: 15px;
+	padding: 15px;
+	flex-direction: column;
+
+	border: 1px solid rgba(0,0,0,.125);
+	border-radius: .25rem;
+
+	&__cover {
+		width: 100%;
+		flex: 0 0 auto;
+	}
+
+	&__title {
+		flex: 1 1 auto;
+		text-align: center;
+	}
+
+	&__description {
+		flex: 1 1 auto;
+	}
+
+}
