@@ -24,6 +24,7 @@
 }
 
 .news-item {
+	display: flex;
 	flex-basis: calc(25% - 30px);
 	margin: 15px;
 	padding: 15px;
@@ -32,18 +33,30 @@
 	border: 1px solid rgba(0,0,0,.125);
 	border-radius: .25rem;
 
+	background-color: $light-white;
+
+	&, &:focus, &:hover, &:active {
+		color: $pure-black;
+		text-decoration: none;
+	}
+
 	&__cover {
 		width: 100%;
 		flex: 0 0 auto;
 	}
 
 	&__title {
-		flex: 1 1 auto;
+		display: flex;
+		flex: 1 1 100%;
+		align-items: center;
+		justify-content: center;
 		text-align: center;
 	}
 
-	&__description {
+	&__time {
 		flex: 1 1 auto;
+		display: flex;
+		justify-content: flex-end;
 	}
 
 }

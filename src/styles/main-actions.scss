@@ -37,12 +37,23 @@
 	border: 1px solid rgba(0,0,0,.125);
 	border-radius: .25rem;
 
+	&:focus {
+		outline: none;
+	}
+
 	&__title {
 		flex-basis: 20%;
+		text-align: center;
 	}
 
 	&__time {
 		flex-basis: 10%;
+	}
+
+	&__delimer {
+		width: calc(100% + 1rem);
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	&__content {
@@ -54,5 +65,9 @@
 
 		color: $pure-white;
 		background-color: #007bff;
+
+		&:hover {
+			color: $pure-white;
+		}
 	}
 }
