@@ -1,6 +1,8 @@
 @import "common";
 @import "mixins";
 
+$main-direction__item-box-shadow: 0px 0px 3px 1px;
+
 .main-directions {
 	padding: 15px;
 	background: $very-light-black;
@@ -22,22 +24,22 @@
 
 		&--fulltime:hover {
 			background-color: rgba(62, 181, 241,  0.05);
-			box-shadow: 0px 0px 3px 1px rgba(62, 181, 241,  0.05);
+			box-shadow: $main-direction__item-box-shadow rgba(62, 181, 241,  0.05);
 		}
 
 		&--spc:hover {
 			background-color: rgba(255, 218, 68,  0.1);
-			box-shadow: 0px 0px 3px 1px rgba(255, 218, 68,  0.1);
+			box-shadow: $main-direction__item-box-shadow rgba(255, 218, 68,  0.1);
 		}
 
 		&--distance:hover {
 			background-color: rgba(145, 220, 90,  0.05);
-			box-shadow: 0px 0px 3px 1px rgba(145, 220, 90,  0.05);
+			box-shadow: $main-direction__item-box-shadow rgba(145, 220, 90,  0.05);
 		}
 
 		&--mfcpk:hover {
 			background-color: rgba(216, 8, 39,  0.01);
-			box-shadow: 0px 0px 3px 1px rgba(216, 8, 39,  0.01);
+			box-shadow: $main-direction__item-box-shadow rgba(216, 8, 39,  0.01);
 		}
 	}
 }

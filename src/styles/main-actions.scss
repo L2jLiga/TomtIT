@@ -1,0 +1,58 @@
+@import "common";
+@import "mixins";
+
+.main-actions {
+	padding-top: 15px;
+	padding-bottom: 50px;
+
+	&__title {
+		color: $pure-black;
+		@include font(600, 2.5em, 1.5);
+		text-align: center;
+	}
+
+	&__container {
+		padding: 25px 0 15px;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.slick-track{
+	    display: flex;
+
+	    .slick-slide{
+	        display: flex;
+	        height: auto;
+	        flex-direction: column;
+	        align-items: center; //optional
+	        justify-content: center; //optional
+	    }
+	}
+}
+
+.action-item {
+	margin: .5rem;
+	padding: .5rem;
+
+	border: 1px solid rgba(0,0,0,.125);
+	border-radius: .25rem;
+
+	&__title {
+		flex-basis: 20%;
+	}
+
+	&__time {
+		flex-basis: 10%;
+	}
+
+	&__content {
+		flex-basis: 100%;
+	}
+
+	&__btn {
+		flex-basis: 20%;
+
+		color: $pure-white;
+		background-color: #007bff;
+	}
+}
