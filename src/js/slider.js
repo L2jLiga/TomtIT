@@ -1,5 +1,12 @@
 (()=>{
-	const slidersFunctions = [
+	'use strict';
+
+	const createElement = element => document.createElement(element);
+
+	const scriptFns = [
+		() => script.onload = null,
+		() => script.remove(),
+
 		// Slider in top section
 		() => $('.slider').slick({
 			autoplay: true,
@@ -42,13 +49,11 @@
 			})
 	];
 
-	const createElement = element => document.createElement(element);
-
 	let script = createElement('script');
 
 	script.src = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.js';
 
-	script.onload = () => slidersFunctions.forEach(slider => slider())
+	script.onload = () => scriptFns.forEach(slider => slider())
 
 	document.body.appendChild(script);
 })();

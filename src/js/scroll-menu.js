@@ -1,4 +1,6 @@
 (() => {
+	'use strict';
+
 	const $window = window;
 	const $document = $window.document;
 
@@ -38,8 +40,5 @@
 		$window.addEventListener('resize', () => {
 			headerHeight = header.offsetHeight;
 		});
-
-
-		
 	});
 })();
