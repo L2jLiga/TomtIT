@@ -13,56 +13,61 @@ const sourcemaps = require('gulp-sourcemaps');
 
 // PostCSS settings
 const postcssPreprocess = [
-	//require('usedcss')({
-	//	html: './dist/**/*.html',
-	//	js: require('./src/js-static.js')
-	//}),
-	require('postcss-nth-child-fix'),
-	require('postcss-fixes')({preset: 'fixes-only'}),
-	require('autoprefixer'),
-	
+  //require('usedcss')({
+  //  html: './dist/**/*.html',
+  //  js: require('./src/js-static.js')
+  //}),
+  require('postcss-nth-child-fix'),
+  require('postcss-fixes')({preset: 'fixes-only'}),
+  require('autoprefixer'),
+
 ];
 const postcssMinify = [
-	require('cssnano')({'safe': true, 'zindex': false}),
-	require('postcss-csso')(),
+  require('cssnano')({'safe': true, 'zindex': false}),
+  require('postcss-csso')(),
 ];
 
 // Clean DIST folder
 gulp.task('clean dist', function(){
-	return gulp.src(['./dist/res/css/*', './dist/res/js/*'], {read: false})
-	.pipe(clean());
+  return gulp.src([
+      './dist/res/css/*',
+      './dist/res/js/*'
+    ], {read: false})
+
+    .pipe(clean());
 });
 
 // Compile from SASS
 gulp.task('compile styles', function () {
-	return gulp.src([
-		'./src/vendor-styles/*.scss',
-		'./src/styles/*.scss'
-	])
+  return gulp.src([
+      './src/vendor-styles/*.scss',
+      './src/styles/*.scss'
+    ])
+
     .pipe(sass().on('error', sass.logError))
     .pipe(concatCss('app-style.css'))
-	.pipe(postcss(postcssPreprocess))
-    
+    .pipe(postcss(postcssPreprocess))
+
     // Original
     .pipe(gulp.dest('./dist/res/css'))
 
     // minified
     .pipe(rename({suffix: '.min'}))
-	.pipe(postcss(postcssMinify))
-	.pipe(gulp.dest("./dist/res/css"));;
+    .pipe(postcss(postcssMinify))
+    .pipe(gulp.dest("./dist/res/css"));
 });
 
 gulp.task('compile scripts', function(){
-	return gulp.src(require('./src/js-static.js'))
-	.pipe(concat('app.js'))
-	.pipe(babel())
+  return gulp.src(require('./src/js-static.js'))
+    .pipe(concat('app.js'))
+    .pipe(babel())
 
-	// Original
-	.pipe(gulp.dest('./dist/res/js'))
+    // Original
+    .pipe(gulp.dest('./dist/res/js'))
 
-	// Minify
-	.pipe(sourcemaps.init())
-	.pipe(uglify())
+    // Minify
+    .pipe(sourcemaps.init())
+    .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist/res/js'));
@@ -70,14 +75,14 @@ gulp.task('compile scripts', function(){
 
 gulp.task('watch', function() {
   gulp.watch([
-	  	'./src/js-static.js',
-	  	'./src/js/**/*.js'
-  	], gulp.parallel('compile scripts'));
+      './src/js-static.js',
+      './src/js/**/*.js'
+    ], gulp.parallel('compile scripts'));
+
   gulp.watch([
-		'./src/vendor-styles/*.scss',
-		'./src/styles/*.scss',
-	//	'./dist/**/*.html'
-	], gulp.parallel('compile styles'));
+      './src/vendor-styles/*.scss',
+      './src/styles/*.scss'
+    ], gulp.parallel('compile styles'));
 });
 
 gulp.task('build', gulp.series('clean dist', 'compile scripts', 'compile styles'));
