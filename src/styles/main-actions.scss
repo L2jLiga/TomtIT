@@ -2,72 +2,72 @@
 @import "mixins";
 
 .main-actions {
-	padding-top: 15px;
-	padding-bottom: 50px;
+  padding-top: 15px;
+  padding-bottom: 50px;
 
-	&__title {
-		color: $pure-black;
-		@include font(600, 2.5em, 1.5);
-		text-align: center;
-	}
+  &__title {
+    color: $pure-black;
+    @include font(600, 2.5em, 1.5);
+    text-align: center;
+  }
 
-	&__container {
-		padding: 25px 0 15px;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
+  &__container {
+    padding: 25px 0 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-	.slick-track{
-	    display: flex;
+  .slick-track{
+      display: flex;
 
-	    .slick-slide{
-	        display: flex;
-	        height: auto;
-	        flex-direction: column;
-	        align-items: center; //optional
-	        justify-content: center; //optional
-	    }
-	}
+      .slick-slide{
+          display: flex;
+          height: auto;
+          flex-direction: column;
+          align-items: center; //optional
+          justify-content: center; //optional
+      }
+  }
 }
 
 .action-item {
-	margin: .5rem;
-	padding: .5rem;
+  margin: .5rem;
+  padding: .5rem;
 
-	border: 1px solid rgba(0,0,0,.125);
-	border-radius: .25rem;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
 
-	&:focus {
-		outline: none;
-	}
+  &:focus {
+    outline: none;
+  }
 
-	&__title {
-		flex-basis: 20%;
-		text-align: center;
-	}
+  &__title {
+    flex-basis: 20%;
+    text-align: center;
+  }
 
-	&__time {
-		flex-basis: 10%;
-	}
+  &__time {
+    flex-basis: 10%;
+  }
 
-	&__delimer {
-		width: calc(100% + 1rem);
-		margin-left: 0;
-		margin-right: 0;
-	}
+  &__delimer {
+    width: calc(100% + 1rem);
+    margin-left: 0;
+    margin-right: 0;
+  }
 
-	&__content {
-		flex-basis: 100%;
-	}
+  &__content {
+    flex-basis: 100%;
+  }
 
-	&__btn {
-		flex-basis: 20%;
+  &__btn {
+    flex-basis: 20%;
 
-		color: $pure-white;
-		background-color: #007bff;
+    color: $pure-white;
+    background-color: #007bff;
 
-		&:hover {
-			color: $pure-white;
-		}
-	}
+    &:hover {
+      color: $pure-white;
+    }
+  }
 }

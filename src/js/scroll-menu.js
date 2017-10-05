@@ -1,44 +1,44 @@
 (() => {
-	'use strict';
+  'use strict';
 
-	const $window = window;
-	const $document = $window.document;
+  const $window = window;
+  const $document = $window.document;
 
-	const querySelector = selector => $window.document.querySelector(selector);
+  const querySelector = selector => $window.document.querySelector(selector);
 
-	$document.addEventListener('DOMContentLoaded', () => {
-		let header = querySelector('.header');
-		let headerTop = querySelector('.header__top');
+  $document.addEventListener('DOMContentLoaded', () => {
+    let header = querySelector('.header');
+    let headerTop = querySelector('.header__top');
 
-		let headerHeight = header.offsetHeight;
+    let headerHeight = header.offsetHeight;
 
-		const calculateHeaderTopParams = () => {
-			let scrollTop = tmp = (tmp = ($window.pageYOffset || $document.scrollTop)  - ($document.clientTop || 0)) ? tmp : 0;
+    const calculateHeaderTopParams = () => {
+      let scrollTop = tmp = (tmp = ($window.pageYOffset || $document.scrollTop)  - ($document.clientTop || 0)) ? tmp : 0;
 
-			let headerTopHeigh = headerTop.offsetHeight;
+      let headerTopHeigh = headerTop.offsetHeight;
 
-			let heightDiff = headerHeight - headerTopHeigh;
+      let heightDiff = headerHeight - headerTopHeigh;
 
-			if(scrollTop > heightDiff) {
-				headerTop.style.boxShadow = 'rgba(0, 0, 0, 0.3) 0px 2px 2px 3px';
+      if(scrollTop > heightDiff) {
+        headerTop.style.boxShadow = 'rgba(0, 0, 0, 0.3) 0px 2px 2px 3px';
 
-				scrollTop = heightDiff;
-			} else {
-				headerTop.style.boxShadow = 'none';
-			};
+        scrollTop = heightDiff;
+      } else {
+        headerTop.style.boxShadow = 'none';
+      };
 
-			let tmp;
+      let tmp;
 
-			headerTop.style.fontSize = ((heightDiff - scrollTop) / heightDiff * 0.25 + 0.75) + 'rem';
+      headerTop.style.fontSize = ((heightDiff - scrollTop) / heightDiff * 0.25 + 0.75) + 'rem';
 
-			headerTop.style.backgroundColor = 'rgba(255,255,255,' + ((scrollTop - heightDiff) / heightDiff * 0.3 + 1) + ')';
-		}
+      headerTop.style.backgroundColor = 'rgba(255,255,255,' + ((scrollTop - heightDiff) / heightDiff * 0.3 + 1) + ')';
+    }
 
-		calculateHeaderTopParams();
-		$window.addEventListener('scroll', calculateHeaderTopParams);
+    calculateHeaderTopParams();
+    $window.addEventListener('scroll', calculateHeaderTopParams);
 
-		$window.addEventListener('resize', () => {
-			headerHeight = header.offsetHeight;
-		});
-	});
+    $window.addEventListener('resize', () => {
+      headerHeight = header.offsetHeight;
+    });
+  });
 })();

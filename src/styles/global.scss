@@ -3,15 +3,15 @@
  */
 
 html {
-	@media (max-width: 1199px) {
-		font-size: 12px;
-	}
+  @media (max-width: 1199px) {
+    font-size: 12px;
+  }
 
-	@media (min-width: 1200px) and (max-width: 1920px) {
-		font-size: calc((100vw - 1366px)/(1920 - 1366)*(16 - 13) + 13px);
-	}
+  @media (min-width: 1200px) and (max-width: 1920px) {
+    font-size: calc((100vw - 1366px)/(1920 - 1366)*(16 - 13) + 13px);
+  }
 
-	@media (min-width: 1921px) {
-		font-size: 16px;
-	}
+  @media (min-width: 1921px) {
+    font-size: 16px;
+  }
 }

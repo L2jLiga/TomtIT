@@ -2,16 +2,16 @@
 @import "mixins";
 
 .header {
-	width: 100%;
-	height: 100vh;
-	background-image: url('../images/bg.jpg');
-	background-size: 100vw auto;
-	background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/bg.jpg');
+  background-size: 100vw auto;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 
   margin: 0;
 
-	&__top {
+  &__top {
     position: fixed;
     left: 0;
     right: 0;
@@ -20,11 +20,11 @@
 
     padding: 1.25em 1em;
 
-		background-color: $half-white;
-	}
+    background-color: $half-white;
+  }
 
-	&__logo {
-		height: 5em;
+  &__logo {
+    height: 5em;
     width: 6.8em;
 
     padding: 0 .9em;
@@ -33,9 +33,9 @@
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 5em;
-	}
+  }
 
-	&__title {
+  &__title {
     @include text-with-shadow($primary-text-color, $pure-white);
     @include font(600, 1.3em, 1.3);
     text-transform: uppercase;
@@ -49,7 +49,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 18.75rem;
-	}
+  }
 
   &__menu {
     display: flex;

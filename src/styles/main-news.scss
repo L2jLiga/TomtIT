@@ -2,61 +2,61 @@
 @import "mixins";
 
 .main-news {
-	padding: 15px;
-	background: $very-light-black;
+  padding: 15px;
+  background: $very-light-black;
 
-	&__title {
-		color: $pure-black;
-		@include font(600, 2.5em, 1.5);
-		text-align: center;
-	}
+  &__title {
+    color: $pure-black;
+    @include font(600, 2.5em, 1.5);
+    text-align: center;
+  }
 
-	&__wrapper {
-		padding: 25px 15px 15px;
-		max-width: 1200px;
-		margin: 0 auto;
+  &__wrapper {
+    padding: 25px 15px 15px;
+    max-width: 1200px;
+    margin: 0 auto;
 
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
 }
 
 .news-item {
-	display: flex;
-	flex-basis: calc(25% - 30px);
-	margin: 15px;
-	padding: 15px;
-	flex-direction: column;
+  display: flex;
+  flex-basis: calc(25% - 30px);
+  margin: 15px;
+  padding: 15px;
+  flex-direction: column;
 
-	border: 1px solid rgba(0,0,0,.125);
-	border-radius: .25rem;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
 
-	background-color: $light-white;
+  background-color: $light-white;
 
-	&, &:focus, &:hover, &:active {
-		color: $pure-black;
-		text-decoration: none;
-	}
+  &, &:focus, &:hover, &:active {
+    color: $pure-black;
+    text-decoration: none;
+  }
 
-	&__cover {
-		width: 100%;
-		flex: 0 0 auto;
-	}
+  &__cover {
+    width: 100%;
+    flex: 0 0 auto;
+  }
 
-	&__title {
-		display: flex;
-		flex: 1 1 100%;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-	}
+  &__title {
+    display: flex;
+    flex: 1 1 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
-	&__time {
-		flex: 1 1 auto;
-		display: flex;
-		justify-content: flex-end;
-	}
+  &__time {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
+  }
 
 }
