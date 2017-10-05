@@ -1,22 +1,22 @@
 (()=>{
   'use strict';
 
-  const createElement = element => document.createElement(element);
-
   const scriptFns = [
-    () => script.onload = null,
-    () => script.remove(),
-
     // Slider in top section
-    () => $('.slider').slick({
-      autoplay: true,
-      autoplaySpeed: 15000,
-      prevArrow: "<div class='slider__arrow slider__arrow--left glyphicon glyphicon-arrow-left'></div>",
-      nextArrow:"<div class='slider__arrow slider__arrow--right glyphicon glyphicon-arrow-right'></div>"
-    }),
+    {
+      selector: '.slider',
+      options: {
+        autoplay: true,
+        autoplaySpeed: 15000,
+        prevArrow: "<div class='slider__arrow slider__arrow--left glyphicon glyphicon-arrow-left'></div>",
+        nextArrow:"<div class='slider__arrow slider__arrow--right glyphicon glyphicon-arrow-right'></div>"
+      }
+    },
 
     // Slider for actions
-    () => $('.main-actions__container').slick({
+    {
+      selector: '.main-actions__container',
+      options: {
         dots: true,
         infinite: false,
         arrows: false,
@@ -46,14 +46,10 @@
             }
           }
         ]
-      })
+      }
+    }
   ];
 
-  let script = createElement('script');
-
-  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.js';
-
-  script.onload = () => scriptFns.forEach(slider => slider())
-
-  document.body.appendChild(script);
+  getUtils.requireJS('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.js',
+                     () => scriptFns.forEach(slider => {$(slider.selector).slick(slider.options)}));
 })();

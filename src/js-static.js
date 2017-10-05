@@ -10,5 +10,7 @@
 
     './node_modules/bootstrap/js/dist/dropdown.js',
 
+    './src/js-libs/**/*.js',
+
     './src/js/**/*.js'];
 })()

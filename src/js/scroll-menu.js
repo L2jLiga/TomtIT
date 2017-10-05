@@ -4,7 +4,7 @@
   const $window = window;
   const $document = $window.document;
 
-  const querySelector = selector => $window.document.querySelector(selector);
+  const querySelector = getUtils.querySelector;
 
   $document.addEventListener('DOMContentLoaded', () => {
     let header = querySelector('.header');
@@ -13,7 +13,7 @@
     let headerHeight = header.offsetHeight;
 
     const calculateHeaderTopParams = () => {
-      let scrollTop = tmp = (tmp = ($window.pageYOffset || $document.scrollTop)  - ($document.clientTop || 0)) ? tmp : 0;
+      let scrollTop = getUtils.getScrollOffset();
 
       let headerTopHeigh = headerTop.offsetHeight;
 
