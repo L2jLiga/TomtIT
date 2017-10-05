@@ -4,7 +4,7 @@ $pure-white:         #fff;
 $pure-black:         #000;
 $very-light-black:   rgba($pure-black, .05);
 $light-black:        rgba($pure-black, .3);
-$half-black:		 rgba($pure-black, .7);
+$half-black:	     	 rgba($pure-black, .7);
 $light-white:        rgba($pure-white, .3);
 $half-white:         rgba($pure-white, .7);
 
@@ -15,11 +15,13 @@ $gray:               #e2e2e2;
 
 // Screen breakpoint
 
-$desktop-wide: 1920px;
-$desktop: 1440px;
-$tablet: 1024px;
+$full-hd-plus: 1921px;
+$full-hd:      1920px;
+$desktop-wide: 1720px;
+$desktop:      1440px;
+$tablet:       1024px;
 $tablet-small: 768px;
-$phone: 480px;
-$phone-small: 320px;
+$phone:        480px;
+$phone-small:  320px;
 
 // Something else..

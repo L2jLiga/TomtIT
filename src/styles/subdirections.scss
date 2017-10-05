@@ -1,0 +1,54 @@
+@import "common";
+@import "mixins";
+
+.main-subdirections {
+  max-width: 1200px;
+  padding: 50px 15px 35px;
+  margin: 0 auto;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    flex: 0 0 100%;
+
+    @media (min-width: $phone) {
+      flex: 0 0 calc(100% / 2);
+    }
+
+    @media (min-width: $tablet) {
+      flex: 0 0 calc(100% / 3);
+    }
+
+    @media (min-width: $full-hd-plus) {
+      flex: 0 0 calc(100% / 6);
+    }
+  }
+}
+
+.subdirection {
+  display: flex;
+  flex-direction: column;
+
+  @include no-underline();
+
+  &__cover {
+    display: flex;
+    width: 80%;
+    max-width: 240px;
+  }
+
+  &__title {
+    display: flex;
+    font-size: 1.5rem;
+    flex-basis: 30%;
+  }
+}
