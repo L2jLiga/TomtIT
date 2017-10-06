@@ -1,0 +1,43 @@
+@import "common";
+@import "mixins";
+
+.footer {
+  padding: 15px;
+  background: $very-light-black;
+
+  &__menu {
+    padding: 25px 15px 15px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &__title {
+      text-align: center;
+      flex-basis: 100%;
+      padding: 15px 0;
+    }
+
+    &__category {
+      flex: 1 1 auto;
+
+      &__title {
+        text-align: center;
+      }
+    }
+
+    &__items {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+    }
+
+    &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+    }
+  }
+}
