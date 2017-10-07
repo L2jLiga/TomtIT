@@ -1,88 +1,126 @@
 'use strict';
- 
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const postcss = require('gulp-postcss');
-const rename = require('gulp-rename');
-const clean = require('gulp-clean');
-const concat = require('gulp-concat');
-const concatCss = require('gulp-concat-css');
-const uglify = require('gulp-uglify');
-const babel = require('gulp-babel');
-const sourcemaps = require('gulp-sourcemaps');
 
-// PostCSS settings
-const postcssPreprocess = [
-  //require('usedcss')({
-  //  html: './dist/**/*.html',
-  //  js: require('./src/js-static.js')
-  //}),
-  require('postcss-nth-child-fix'),
-  require('postcss-fixes')({preset: 'fixes-only'}),
+const [ gulp, sass, postcss, newer, rename, clean, concat, concatCss, uglify, babel, sourcemaps ] = [
+  require('gulp'),
+  require('gulp-sass'),
+  require('gulp-postcss'),
+  require('gulp-newer'),
+  require('gulp-rename'),
+  require('gulp-clean'),
+  require('gulp-concat'),
+  require('gulp-concat-css'),
+  require('gulp-uglify'),
+  require('gulp-babel'),
+  require('gulp-sourcemaps')
+];
+
+/**
+ * Gulp tasks
+ */
+
+gulp.task('clean', runClean);
+
+gulp.task('appStyles', buildAppStyles);
+
+gulp.task('appLogic', buildAppLogic);
+
+gulp.task('watch', runWatch);
+
+gulp.task('build', gulp.series('clean', 'appLogic', 'appStyles'));
+
+/**
+ * Removes all builded from source files
+ * @return {Gulp} Gulp task
+ */
+function runClean() {
+  return gulp.src([
+    './dist/res/css/*',
+    './dist/res/js/*'
+    ], { read: false })
+
+  .pipe(clean());
+}
+
+/**
+ * Builds newer app styles and minify it.
+ * @return {Gulp} Gulp task
+ */
+function buildAppStyles() {
+  const distFolder = './dist/res/css/';
+  const fileName = 'app-styles.css';
+
+  const preprocessors = [
+  require('postcss-fixes')({ preset: 'fixes-only' }),
   require('autoprefixer'),
+  ];
 
-];
-const postcssMinify = [
-  require('cssnano')({'safe': true, 'zindex': false}),
-  require('postcss-csso')(),
-];
+  const minify = [
+  require('postcss-csso'),
+  ];
 
-// Clean DIST folder
-gulp.task('clean dist', function(){
   return gulp.src([
-      './dist/res/css/*',
-      './dist/res/js/*'
-    ], {read: false})
-
-    .pipe(clean());
-});
-
-// Compile from SASS
-gulp.task('compile styles', function () {
-  return gulp.src([
-      './src/vendor-styles/*.scss',
-      './src/styles/*.scss'
+    './src/vendor-styles/*.scss',
+    './src/styles/*.scss'
     ])
 
-    .pipe(sass().on('error', sass.logError))
-    .pipe(concatCss('app-style.css'))
-    .pipe(postcss(postcssPreprocess))
+  .pipe(sass().on('error', sass.logError))
 
-    // Original
-    .pipe(gulp.dest('./dist/res/css'))
+  .pipe(newer(distFolder + fileName))
+  .pipe(concatCss(fileName))
 
-    // minified
-    .pipe(rename({suffix: '.min'}))
-    .pipe(postcss(postcssMinify))
-    .pipe(gulp.dest("./dist/res/css"));
-});
+  .pipe(postcss(preprocessors))
+  .pipe(gulp.dest(distFolder))
 
-gulp.task('compile scripts', function(){
+  .pipe(rename({suffix: '.min'}))
+  .pipe(postcss(minify))
+  .pipe(gulp.dest(distFolder));
+}
+
+/**
+ * Builds newer app logic and minify it
+ * @return {Gulp} Gulp task
+ */
+function buildAppLogic() {
+  const distFolder = './dist/res/js';
+  const fileName = 'app.js';
+
   return gulp.src(require('./src/js-static.js'))
-    .pipe(concat('app.js'))
-    .pipe(babel())
 
-    // Original
-    .pipe(gulp.dest('./dist/res/js'))
+  .pipe(newer(distFolder + fileName))
+  .pipe(concat(fileName))
 
-    // Minify
-    .pipe(sourcemaps.init())
-    .pipe(uglify())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./dist/res/js'));
-});
+  .pipe(babel())
+  .pipe(gulp.dest(distFolder))
 
-gulp.task('watch', function() {
-  gulp.watch([
+  .pipe(sourcemaps.init())
+  .pipe(uglify())
+  .pipe(rename({suffix: '.min'}))
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest('./dist/res/js'));
+}
+
+/**
+ * Runs watcher
+ * @return {Gulp} Gulp task
+ */
+function runWatch() {
+  const watcherParams = [
+    {
+      tasksList: ['appLogic'],
+      sourceFiles: [
       './src/js-static.js',
-      './src/js/**/*.js'
-    ], gulp.parallel('compile scripts'));
+      './src/js/**/*.js',
+      ]
+    },
 
-  gulp.watch([
+    {
+      tasksList: ['appStyles'],
+      sourceFiles: [
       './src/vendor-styles/*.scss',
-      './src/styles/*.scss'
-    ], gulp.parallel('compile styles'));
-});
+      './src/styles/*.scss',
+      ]
+    },
+  ];
 
-gulp.task('build', gulp.series('clean dist', 'compile scripts', 'compile styles'));
+  watcherParams.forEach(task => gulp.watch(task.sourceFiles, gulp.parallel(...task.tasksList)));
+}
