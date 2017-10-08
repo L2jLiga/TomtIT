@@ -2,43 +2,68 @@
   'use strict';
 
   const $window = window;
-  const $document = $window.document;
 
   const querySelector = getUtils.querySelector;
 
-  $document.addEventListener('DOMContentLoaded', () => {
-    let header = querySelector('.header');
-    let headerTop = querySelector('.header__top');
+  $window.document.addEventListener('DOMContentLoaded', scrollableMenu);
+
+  /**
+   * Handle page scroll and calculate header params
+   * such as background-color and height
+   * @return {void}
+   */
+  function scrollableMenu() {
+    const [ header, headerTop ] = [
+      querySelector('.header'),
+
+      querySelector('.header__top')
+    ];
 
     let headerHeight = header.offsetHeight;
 
-    const calculateHeaderTopParams = () => {
-      let scrollTop = getUtils.getScrollOffset();
+    /**
+     * Calculate background opacity and height of headerTop element based on current scroll position
+     * Also add or remove boxShadow in case if current scroll greater than headerHeight
+     */
 
-      let headerTopHeigh = headerTop.offsetHeight;
+    const recalcStyles = () => {
+      let currentScrollTop = getUtils.getScrollOffset();
 
-      let heightDiff = headerHeight - headerTopHeigh;
+      let currentHeightDiff = headerHeight - headerTop.offsetHeight;
 
-      if(scrollTop > heightDiff) {
+      if (currentScrollTop > currentHeightDiff) {
         headerTop.style.boxShadow = 'rgba(0, 0, 0, 0.3) 0px 2px 2px 3px';
 
-        scrollTop = heightDiff;
+        currentScrollTop = currentHeightDiff;
       } else {
         headerTop.style.boxShadow = 'none';
-      };
+      }
 
-      let tmp;
+      headerTop.style.fontSize = ((currentHeightDiff - currentScrollTop) / currentHeightDiff * 0.25 + 0.75) + 'rem';
 
-      headerTop.style.fontSize = ((heightDiff - scrollTop) / heightDiff * 0.25 + 0.75) + 'rem';
+      headerTop.style.backgroundColor = 'rgba(255,255,255,' + ((currentScrollTop - currentHeightDiff) / currentHeightDiff * 0.3 + 1) + ')';
+    };
 
-      headerTop.style.backgroundColor = 'rgba(255,255,255,' + ((scrollTop - heightDiff) / heightDiff * 0.3 + 1) + ')';
+    /**
+     * When window was resized we must to recalculate new header height
+     */
+
+    const recalcHeaderHeight = () => {
+      headerHeight = header.offsetHeight;
     }
 
-    calculateHeaderTopParams();
-    $window.addEventListener('scroll', calculateHeaderTopParams);
+    /**
+     * Initialize scrollable menu
+     */
 
-    $window.addEventListener('resize', () => {
-      headerHeight = header.offsetHeight;
-    });
-  });
+    recalcStyles();
+
+    /**
+     * Enable handlers
+     */
+
+    $window.addEventListener('scroll', recalcStyles);
+
+    $window.addEventListener('resize', recalcHeaderHeight);
+  }
 })();
