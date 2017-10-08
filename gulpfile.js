@@ -9,7 +9,7 @@ const [ gulp, sass, postcss, newer, rename, clean, concat, concatCss, uglify, ba
   require('gulp-clean'),
   require('gulp-concat'),
   require('gulp-concat-css'),
-  require('gulp-uglify'),
+  require('gulp-uglifyes'),
   require('gulp-babel'),
   require('gulp-sourcemaps')
 ];
