@@ -10,19 +10,20 @@
   }
 
   &__container {
-    @include container();
+    @include container(100%, 1024px, 1024px, 1140px);
 
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
   }
 
 }
 
 .news-item {
   display: flex;
+  flex-grow: 1;
   flex-basis: calc(25% - 30px);
-  margin: 15px;
+  margin: .5rem;
   padding: 15px;
   flex-direction: column;
 
@@ -50,7 +51,7 @@
   }
 
   &__time {
-    flex: 1 1 auto;
+    flex: 1 0 auto;
     display: flex;
     justify-content: flex-end;
   }

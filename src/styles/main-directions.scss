@@ -12,7 +12,7 @@ $main-direction__item-box-shadow: 0px 0px 3px 1px;
   }
 
   &__container {
-    @include container();
+    @include container(100%, 100%, 1140px);
   }
 
   &__item {
@@ -38,6 +38,11 @@ $main-direction__item-box-shadow: 0px 0px 3px 1px;
     &--mfcpk:hover {
       background-color: rgba(216, 8, 39,  0.01);
       box-shadow: $main-direction__item-box-shadow rgba(216, 8, 39,  0.01);
+    }
+
+    @media (max-width: $tablet) {
+      flex-basis: 50%;
+      max-width: 50%;
     }
   }
 }
