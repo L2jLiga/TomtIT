@@ -50,6 +50,11 @@
   text-align: center;
 }
 
+@mixin condensed() {
+  margin: 0;
+  padding: 0;
+}
+
 @mixin no-outline() {
   &,
   &:hover,
