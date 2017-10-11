@@ -8,9 +8,7 @@ $main-direction__item-box-shadow: 0px 0px 3px 1px;
   background: $very-light-black;
 
   &__title {
-    color: $pure-black;
-    @include font($font-weight-bold, 2.5em, 1.5);
-    text-align: center;
+    @include container-title();
   }
 
   &__container {
@@ -55,6 +53,8 @@ $main-direction__item-box-shadow: 0px 0px 3px 1px;
   }
 
   &__title {
+    @include font($font-weight-semi-bold, 1.6rem);
+
     display: flex;
     flex-basis: 100%;
     align-items: center;

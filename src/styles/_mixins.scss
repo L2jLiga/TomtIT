@@ -9,14 +9,25 @@
   text-shadow: 0px 1px 2px $shadow-color;
 }
 
-@mixin font($font-weight: 400, $font-size: 14px, $line-height: 1.5, $family: 'Open Sans') {
-  font: $font-weight $font-size unquote("/") $line-height $family;
+@mixin font($font-weight: $font-weight-normal, $font-size: 1em, $line-height: false, $family: 'Open Sans') {
+  font-size: $font-size;
+  font-weight: $font-weight;
+
+  @if $line-height {
+    line-height: $line-height;
+  }
 }
 
 @mixin container($width: $container-width) {
   max-width: $width;
   margin: 0 auto;
   padding: 25px 15px 15px;
+}
+
+@mixin container-title() {
+  color: $pure-black;
+  @include font($font-weight-semi-bold, 2.4em, 1.5);
+  text-align: center;
 }
 
 @mixin no-outline() {

@@ -6,9 +6,7 @@
   background: $very-light-black;
 
   &__title {
-    color: $pure-black;
-    @include font(600, 2.5em, 1.5);
-    text-align: center;
+    @include container-title();
   }
 
   &__container {

@@ -2,13 +2,10 @@
 @import "mixins";
 
 .main-actions {
-  padding-top: 15px;
-  padding-bottom: 50px;
+  padding: 15px;
 
   &__title {
-    color: $pure-black;
-    @include font($font-weight-bold, 2.5em, 1.5);
-    text-align: center;
+    @include container-title();
   }
 
   &__container {
@@ -22,9 +19,14 @@
           display: flex;
           height: auto;
           flex-direction: column;
-          align-items: center; //optional
-          justify-content: center; //optional
+          align-items: center;
+          justify-content: center;
       }
+  }
+
+  .slick-dots {
+    position: static;
+    margin: 25px auto -25px;
   }
 }
 

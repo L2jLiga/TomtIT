@@ -10,7 +10,6 @@
   background-color: $pure-white;
 
   & &__wrapper {
-    background-color: $pure-white;
     margin: 0;
     display: flex;
   }
@@ -56,13 +55,14 @@
     border: 1px solid;
     border-radius: 3vw;
 
-    font-size: 1.5vw;
+    font-size: 1.4em;
     cursor: pointer;
 
+    max-height: 40px;
+    max-width: 40px;
     height: 3vw;
     width: 3vw;
 
-    background-color: $pure-white;
     box-shadow: 0 0 10px -1px $half-black;
     transition: box-shadow .15s ease;
 
