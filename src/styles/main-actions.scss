@@ -7,14 +7,12 @@
 
   &__title {
     color: $pure-black;
-    @include font(600, 2.5em, 1.5);
+    @include font($font-weight-bold, 2.5em, 1.5);
     text-align: center;
   }
 
   &__container {
-    padding: 25px 0 15px;
-    max-width: 1200px;
-    margin: 0 auto;
+    @include container();
   }
 
   .slick-track{

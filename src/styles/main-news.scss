@@ -11,10 +11,8 @@
     text-align: center;
   }
 
-  &__wrapper {
-    padding: 25px 15px 15px;
-    max-width: 1200px;
-    margin: 0 auto;
+  &__container {
+    @include container();
 
     display: flex;
     flex-direction: row;

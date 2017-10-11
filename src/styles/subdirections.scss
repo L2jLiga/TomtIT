@@ -7,6 +7,8 @@
   margin: 0 auto;
 
   &__wrapper {
+    @include container();
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;

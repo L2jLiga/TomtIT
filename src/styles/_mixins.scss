@@ -1,10 +1,7 @@
 @import "common";
 
 @mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
+  border-radius: $radius;
 }
 
 @mixin text-with-shadow($primary-color, $shadow-color) {
@@ -14,6 +11,12 @@
 
 @mixin font($font-weight: 400, $font-size: 14px, $line-height: 1.5, $family: 'Open Sans') {
   font: $font-weight $font-size unquote("/") $line-height $family;
+}
+
+@mixin container($width: $container-width) {
+  max-width: $width;
+  margin: 0 auto;
+  padding: 25px 15px 15px;
 }
 
 @mixin no-outline() {
