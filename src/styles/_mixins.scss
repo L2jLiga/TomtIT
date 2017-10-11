@@ -18,10 +18,30 @@
   }
 }
 
-@mixin container($width: $container-width) {
-  max-width: $width;
+@mixin container($tablet-width: $tablet-small,
+  $desktop-small-width: $tablet,
+  $desktop-width: $desktop-small,
+  $desktop-wide-width: $desktop) {
+
+  max-width: 100%;
   margin: 0 auto;
   padding: 25px 15px 15px;
+
+  @media (min-width: $tablet) {
+    max-width: $tablet-width;
+  }
+
+  @media (min-width: $desktop-small) {
+    max-width: $desktop-small-width;
+  }
+
+  @media (min-width: $desktop) {
+    max-width: $desktop-width;
+  }
+
+  @media (min-width: $desktop-wide) {
+    max-width: $desktop-wide-width;
+  }
 }
 
 @mixin container-title() {
