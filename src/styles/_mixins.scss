@@ -1,9 +1,5 @@
 @import "common";
 
-@mixin border-radius($radius) {
-  border-radius: $radius;
-}
-
 @mixin text-with-shadow($primary-color, $shadow-color) {
   color: $primary-color;
   text-shadow: 0px 1px 2px $shadow-color;
@@ -22,29 +18,26 @@
   }
 }
 
-@mixin container($tablet-width: $tablet,
-  $desktop-small-width: $tablet-wide,
-  $desktop-width: $desktop-small,
-  $desktop-wide-width: $desktop-narrow) {
+@mixin container() {
 
   max-width: 100%;
   margin: 0 auto;
   padding: 25px 15px 15px;
 
   @media (min-width: $tablet) {
-    max-width: $tablet-width;
+    max-width: $tablet;
   }
 
   @media (min-width: $desktop-small) {
-    max-width: $desktop-small-width;
+    max-width: $tablet-wide;
   }
 
   @media (min-width: $desktop) {
-    max-width: $desktop-width;
+    max-width: $desktop-small;
   }
 
   @media (min-width: $desktop-wide) {
-    max-width: $desktop-wide-width;
+    max-width: $desktop-narrow;
   }
 }
 
