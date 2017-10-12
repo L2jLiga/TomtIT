@@ -5,9 +5,17 @@
   width: 100%;
   height: 100vh;
   background-image: url('../images/bg.jpg');
-  background-size: 100vw auto;
   background-repeat: no-repeat;
+  background-position: top center;
   background-attachment: fixed;
+
+  @media (max-aspect-ratio: 2300/1635) {
+    background-size: auto 100vh;
+  }
+
+  @media (min-aspect-ratio: 2300/1635) {
+    background-size: 100vw auto;
+  }
 
   margin: 0;
 
