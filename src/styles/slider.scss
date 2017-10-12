@@ -78,4 +78,8 @@
       right: 1vw;
     }
   }
+
+  @media (max-width: $tablet-narrow) {
+    display: none;
+  }
 }
