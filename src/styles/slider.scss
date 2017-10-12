@@ -2,7 +2,7 @@
 @import "mixins";
 
 .slider {
-  @include container(100%, 100%);
+  @include container();
 
   position: relative;
   overflow: hidden;

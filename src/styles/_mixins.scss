@@ -9,19 +9,23 @@
   text-shadow: 0px 1px 2px $shadow-color;
 }
 
-@mixin font($font-weight: $font-weight-normal, $font-size: 1em, $line-height: false, $family: 'Open Sans') {
-  font-size: $font-size;
-  font-weight: $font-weight;
+@mixin font($font-weight: $font-weight-normal, $font-size: 1em, $line-height: false, $family: false) {
+  @if $family {
+    font: $font-weight $font-size unquote('/') $line-height $family;
+  } @else {
+    font-size: $font-size;
+    font-weight: $font-weight;
 
-  @if $line-height {
-    line-height: $line-height;
+    @if $line-height {
+      line-height: $line-height;
+    }
   }
 }
 
-@mixin container($tablet-width: $tablet-small,
-  $desktop-small-width: $tablet,
+@mixin container($tablet-width: $tablet,
+  $desktop-small-width: $tablet-wide,
   $desktop-width: $desktop-small,
-  $desktop-wide-width: $desktop) {
+  $desktop-wide-width: $desktop-narrow) {
 
   max-width: 100%;
   margin: 0 auto;

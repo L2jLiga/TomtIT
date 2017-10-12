@@ -10,7 +10,7 @@
   }
 
   &__container {
-    @include container(100%, 1024px, 1024px, 1140px);
+    @include container();
 
     display: flex;
     flex-direction: row;
