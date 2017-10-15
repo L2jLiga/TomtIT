@@ -56,4 +56,11 @@
     justify-content: flex-end;
   }
 
+  @media (max-width: $tablet-small) {
+    flex-basis: calc(50% - 30px);
+  }
+
+  @media (max-width: $phone) {
+    flex-basis: 100%;
+  }
 }

@@ -29,6 +29,10 @@
     padding: 1.25em 1em;
 
     background-color: $half-white;
+
+    @media (max-width: $tablet) {
+      justify-content: space-between;
+    }
   }
 
   &__logo {
@@ -63,7 +67,7 @@
       color: $pure-black;
       display: inline;
 
-      @media (max-width: $tablet-wide) {
+      @media (min-width: $tablet) and (max-width: $tablet-wide) {
         @include font($font-weight-bold, 0, 0);
       }
     }
@@ -73,6 +77,14 @@
 
       flex-basis: 0;
     }
+
+    @media (max-width: $tablet) {
+      flex-basis: auto;
+
+      br {
+        display: none;
+      }
+    }
   }
 
   &__menu {
@@ -81,24 +93,85 @@
     flex-shrink: 1;
     flex-basis: 100%;
   }
+
+  &__toggle {
+    display: none;
+
+    @media (max-width: $tablet) {
+      display: block;
+
+      padding: 0 15px;
+      @include font($font-weight-normal, 3rem);
+
+      cursor: pointer;
+      user-select: none;
+    }
+  }
 }
 
 .menu {
-  &.show {
-    display: flex;
-
-    padding: 0 .9em;
-  }
-
   &__item {
     position: relative;
     display: inline-flex;
     padding: 0 .9em;
+
+    @media (max-width: $tablet) {
+      padding: 0 .7em;
+    }
+
+    @media (max-width: $tablet-narrow) {
+      flex-direction: column;
+
+      padding: 1em;
+
+      .dropdown-menu.show {
+        position: static!important;
+        transform: none!important;
+        font-size: 1.5rem;
+        border: none;
+        background: none;
+      }
+    }
   }
 
   &__toggle {
     @include text-with-shadow($primary-text-color, $pure-white);
     @include font($font-weight-medium, 1.3em, 1.5);
     @include no-underline();
+  }
+
+  @media (max-width: $tablet) {
+    display: none;
+
+    &--show {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      width: 100%;
+      height: 4rem;
+
+      display: flex;
+      justify-content: center;
+
+      background-color: inherit;
+
+      padding: .9em;
+
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: $tablet-narrow) {
+    height: 100vh;
+
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: 15px;
+
+    @include font($font-weight-medium, 1.5em);
   }
 }
