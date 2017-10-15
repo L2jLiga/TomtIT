@@ -2,9 +2,7 @@
 @import "mixins";
 
 .main-subdirections {
-  max-width: 1200px;
-  padding: 50px 15px 35px;
-  margin: 0 auto;
+  padding: 15px;
 
   &__title {
     @include container-title();
@@ -43,6 +41,7 @@
 .subdirection {
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 
   @include no-underline();
 
