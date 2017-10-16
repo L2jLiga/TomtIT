@@ -2,10 +2,13 @@
 @import "mixins";
 
 .footer {
+  @include contain();
+
   padding: 15px;
   background: $very-light-black;
 
   &__menu {
+    @include contain();
     @include container();
 
     display: flex;

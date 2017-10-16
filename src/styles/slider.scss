@@ -2,6 +2,7 @@
 @import "mixins";
 
 .slider {
+  @include contain();
   @include container();
 
   position: relative;

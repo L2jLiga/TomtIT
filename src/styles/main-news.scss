@@ -2,6 +2,8 @@
 @import "mixins";
 
 .main-news {
+  @include contain();
+
   padding: 15px;
   background: $very-light-black;
 
@@ -10,6 +12,7 @@
   }
 
   &__container {
+    @include contain();
     @include container();
 
     display: flex;

@@ -69,3 +69,7 @@
     text-decoration: none;
   }
 }
+
+@mixin contain() {
+  contain: content;
+}

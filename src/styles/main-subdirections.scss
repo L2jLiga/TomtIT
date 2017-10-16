@@ -2,6 +2,8 @@
 @import "mixins";
 
 .main-subdirections {
+  @include contain();
+
   padding: 15px;
 
   &__title {
@@ -9,6 +11,7 @@
   }
 
   &__container {
+    @include contain();
     @include container();
 
     display: flex;

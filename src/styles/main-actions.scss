@@ -2,6 +2,8 @@
 @import "mixins";
 
 .main-actions {
+  @include contain();
+
   padding: 15px;
 
   &__title {
@@ -9,19 +11,20 @@
   }
 
   &__container {
+    @include contain();
     @include container();
   }
 
   .slick-track{
-      display: flex;
+    display: flex;
 
-      .slick-slide{
-          display: flex;
-          height: auto;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-      }
+    .slick-slide{
+      display: flex;
+      height: auto;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .slick-dots {

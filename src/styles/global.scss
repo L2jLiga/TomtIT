@@ -14,8 +14,12 @@ html {
   @media (min-width: 1921px) {
     font-size: 16px;
   }
+
+  contain: layout;
 }
 
 body {
   font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+
+  contain: layout;
 }
