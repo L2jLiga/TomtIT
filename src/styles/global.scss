@@ -20,6 +20,8 @@ html {
 
 body {
   font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+}
 
-  contain: layout;
+* {
+  contain: inherit;
 }
