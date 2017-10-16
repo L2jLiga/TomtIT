@@ -39,9 +39,11 @@
         headerTop.style.boxShadow = 'none';
       }
 
-      headerTop.style.fontSize = ((currentHeightDiff - currentScrollTop) / currentHeightDiff * 0.25 + 0.75) + 'rem';
+      let koeff = (currentHeightDiff - currentScrollTop) / currentHeightDiff
 
-      headerTop.style.backgroundColor = 'rgba(255,255,255,' + ((currentScrollTop - currentHeightDiff) / currentHeightDiff * 0.3 + 1) + ')';
+      headerTop.style.fontSize = (koeff * 0.25 + 0.75) + 'rem';
+
+      headerTop.style.backgroundColor = 'rgba(255,255,255,' + (1 - koeff * 0.25) + ')';
     };
 
     /**
