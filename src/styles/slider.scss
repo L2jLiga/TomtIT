@@ -31,7 +31,7 @@
     padding: 1em .5em .5em 1em;
 
     text-transform: uppercase;
-    @include font(700, 2em, 1.3);
+    @include font(700, 1.8em, 1.3);
 
     background-color: #f0cf28;
       border-radius: 150px 0 0 0;
@@ -41,7 +41,7 @@
     display: block;
 
     padding: .5em 1em 1em .5em;
-    @include font(600, 1.4em, 1.5);
+    @include font(600, 1.2em, 1.3);
   }
 
   &__arrow {
