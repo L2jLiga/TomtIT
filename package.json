@@ -1,7 +1,10 @@
 {
   "name": "TomTIT",
   "version": "1.0.0",
+  "description": "WebSite of Tomsk College of IT",
   "main": "index.js",
+  "repository": "https://github.com/L2jLiga/TomtIT",
+  "author": "L2jLiga",
   "license": "MIT",
   "scripts": {
     "build": "gulp build",
